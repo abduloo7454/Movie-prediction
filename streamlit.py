@@ -6,7 +6,15 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding,SimpleRNN,Dense
 from tensorflow.keras.models import load_model
 
-model = load_model('simple_rnn_imdb.h5')
+class CustomSimpleRNN(SimpleRNN):
+    def __init__(self, units, **kwargs):
+        super(CustomSimpleRNN, self).__init__(units, **kwargs)
+
+    def get_config(self):
+        config = super().get_config()
+        return config
+
+model = load_model('simple_rnn_imdb.h5', custom_objects={'CustomSimpleRNN': CustomSimpleRNN})
 
 # Step 2: Helper Functions
 # Function to decode reviews
