@@ -15,6 +15,10 @@ with open('simple_rnn_imdb.pkl', 'rb') as pickle_in:
 def decode_revief(encoded_review):
     return ' '.join([reverse_word_index.get(i, '?') for i in encoded_review])
 
+## Mapping of words index back to words(for understanding)
+word_index=imdb.get_word_index()
+word_index
+
 # Functionn to preprocess user input
 def preprocess_text(text):
   words = text.lower().split()
