@@ -5,6 +5,7 @@ from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding,SimpleRNN,Dense
 from tensorflow.keras.models import load_model
+import pickle
 
 with open('simple_rnn_imdb.pkl', 'rb') as pickle_in:
   model = pickle.load(pickle_in)
