@@ -7,8 +7,8 @@ from tensorflow.keras.layers import Embedding,SimpleRNN,Dense
 from tensorflow.keras.models import load_model
 import pickle
 
-with open('simple_rnn_imdb.pkl', 'rb') as pickle_in:
-  model = pickle.load(pickle_in)
+# Load the LSTM model
+model = keras.models.load_model('simple_rnn_imdb.keras')
 
 # Step 2: Helper Functions
 # Function to decode reviews
